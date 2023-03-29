@@ -1,6 +1,10 @@
 pipeline {
   agent any
 
+  docker {
+            image 'node:6-alpine'
+            args '-p 3000:3000'
+        }
   environment {
     TOMCAT_URL = "http://localhost:8080"
     TOMCAT_USER = "admin"
