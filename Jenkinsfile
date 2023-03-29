@@ -29,7 +29,7 @@ pipeline {
     
     stage('Deploy') {
       steps {
-        withCredentials([sshUserPrivateKey(credentialsId: 'ssh-key', keyFileVariable: 'SSH_KEY')]) {
+        withCredentials([sshUserPrivateKey(credentialsId: 'ubuntu', keyFileVariable: 'SSH_KEY')]) {
           sh """
             ssh -o StrictHostKeyChecking=no -i ${SSH_KEY} ${USERNAME}@${SERVER} 'mkdir -p /var/www/${PROJECT_NAME}'
             scp -o StrictHostKeyChecking=no -i ${SSH_KEY} -r build/* ${USERNAME}@${SERVER}:/var/www/${PROJECT_NAME}
