@@ -4,7 +4,7 @@ pipeline {
   environment {
     SSH_KEY = credentials('ubuntu')
     SERVER = '10.211.55.5'
-    USERNAME = 'root'
+    USERNAME = 'parallels'
     PROJECT_NAME = 'calculator'
   }
   
