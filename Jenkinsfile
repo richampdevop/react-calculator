@@ -3,7 +3,7 @@ pipeline {
   
   environment {
     SSH_KEY = credentials('ubuntu')
-    SERVER = 'linsvr'
+    SERVER = '10.21.55.5'
     USERNAME = 'parallels'
     PROJECT_NAME = 'calculator'
   }
