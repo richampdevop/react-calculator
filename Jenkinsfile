@@ -9,7 +9,7 @@ pipeline {
     APP_NAME = "my-react-app"
   }
   
-  tools {nodejs "nodejs-lts"}
+  tools {nodejs "nodejs"}
   
   stages {
     stage('Checkout') {
