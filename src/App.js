@@ -95,7 +95,8 @@ function reducer(state, { type, payload }) {
         currentOperand: evaluate(state),
       }
      default:
-    // do nothing
+    // handle any other scenario
+    break;
   }
 }
 
@@ -118,7 +119,8 @@ function evaluate({ currentOperand, previousOperand, operation }) {
       computation = prev / current
       break
     default:
-    // do nothing
+    // handle any other scenario
+    break;
   }
 
   return computation.toString()
