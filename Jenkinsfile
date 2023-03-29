@@ -18,17 +18,12 @@ pipeline {
       }
     }
 
-    stage('Install Dependencies') {
+    stage('build') {
       steps {
         sh 'npm install'
       }
     }
 
-    stage('Build') {
-      steps {
-        sh 'export NODE_OPTIONS=--openssl-legacy-provider; ng build'
-      }
-    }
 
     stage('Deploy to Tomcat') {
       steps {
