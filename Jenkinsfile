@@ -1,17 +1,16 @@
 pipeline {
   agent any
 
-  docker-its {
-            image 'node:6-alpine'
-            args '-p 3000:3000'
-        }
+
   environment {
     TOMCAT_URL = "http://localhost:8080"
     TOMCAT_USER = "admin"
     TOMCAT_PASS = "kwame912"
     APP_NAME = "my-react-app"
   }
-
+  
+  tools {nodejs "nodejs-lts"}
+  
   stages {
     stage('Checkout') {
       steps {
