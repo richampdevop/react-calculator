@@ -20,6 +20,7 @@ pipeline {
     stage('install dependancy') {
       steps {
         sh 'npm install'
+        sh 'export NODE_OPTIONS=--openssl-legacy-provider'
       }
     }
   stage('Create Build Artifacts') {
