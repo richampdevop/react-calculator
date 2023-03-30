@@ -3,7 +3,7 @@ pipeline {
 
 
   environment {
-   CI = 'flase'
+   CI = 'false'
     HOME = '.'
     npm_config_cache = 'npm-cache'
   }
