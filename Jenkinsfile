@@ -3,10 +3,9 @@ pipeline {
 
 
   environment {
-    TOMCAT_URL = "http://localhost:8080"
-    TOMCAT_USER = "admin"
-    TOMCAT_PASS = "kwame912"
-    APP_NAME = "my-react-app"
+   CI = 'true'
+    HOME = '.'
+    npm_config_cache = 'npm-cache'
   }
   
   tools {nodejs "nodejs"}
@@ -18,20 +17,17 @@ pipeline {
       }
     }
 
-    stage('build') {
+    stage('install dependancy') {
       steps {
         sh 'npm install'
       }
     }
-
-
-    stage('Deploy to Tomcat') {
-      steps {
-        withCredentials([usernamePassword(credentialsId: 'tomcat-credentials', usernameVariable: 'TOMCAT_USER', passwordVariable: 'TOMCAT_PASS')]) {
-          sh "curl --upload-file build/${APP_NAME}.war ${TOMCAT_USER}:${TOMCAT_PASS}@${TOMCAT_URL}/manager/text/deploy?path=/${APP_NAME}&update=true"
+  stage('Create Build Artifacts') {
+          steps {
+            sh 'npm run build'
+          }
         }
       }
     }
-  }
-}
 
+    
